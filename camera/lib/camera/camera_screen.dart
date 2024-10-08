@@ -12,7 +12,9 @@ class CameraScreen extends StatelessWidget {
       if (!controller.isInitialized) {
         return Container();
       }
-      return CameraPreview(controller.cameraController);
+      return SizedBox(
+
+      child: CameraPreview(controller.cameraController));
     )
     
   }
