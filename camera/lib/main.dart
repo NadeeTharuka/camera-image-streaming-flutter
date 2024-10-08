@@ -1,3 +1,4 @@
+import 'package:camera/camera/camera_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -12,11 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(;
-    debugShowCheckdModeBanner: false,
-    home: const CameraScreen(),
-    title: "Camera App",
-    initialBinding: GlobalBinding()
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const CameraScreen(),
+      title: "Camera App",
+      initialBinding: GlobalBinding(),
     );
   }
 }
