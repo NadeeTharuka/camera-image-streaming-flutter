@@ -1,3 +1,5 @@
+import 'package:camera/camera/capture_button.dart';
+import 'package:camera/camera/top_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:camera_app/scan_controller.dart';
 import 'package:camera/camera.dart';
