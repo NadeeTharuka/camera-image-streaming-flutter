@@ -16,6 +16,9 @@ class ScanController extends GetxController {
     _cameraController = CameraController(_cameras[0], ResolutionPreset.max);
     _cameraController.initialize().then((_) {
      _isInitialized.value = true;
+
+     _cameraController.startImageStream((image) => print(DateTime.now().millisecondsSinceEpoch))
+     
       
     }).catchError((Object e) {
       if (e is CameraException) {
@@ -35,5 +38,9 @@ class ScanController extends GetxController {
   void onInit() {
     _initCamera();
     super.onInit();
+  }
+
+  void capture() {
+
   }
 }
