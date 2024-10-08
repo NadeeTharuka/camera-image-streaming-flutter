@@ -11,7 +11,10 @@ class ScanController extends GetxController {
   late CameraController -cameraController;
   late List<CameraDescription> _cameras;
   late CameraImage _cameraImage;
+  final RxList<Uint8List> _imageList = RxList([]);
 
+
+  List<Uint8List> get imageList => _imageList;
   bool get isInitialized => _isInitialized.value;
   CameraController get cameraController => _cameraController;
 
@@ -50,8 +53,8 @@ class ScanController extends GetxController {
     _cameraImage.planes[0].bytes, format: img.Format.bgra);
 
     Uint8List jpeg = Uint8List.fromList(img.encodeJpg(image));
-    print(jpeg.length);
-    print("Image Captured!");
+    _imageList.add(jpeg);
+    _imageList.refresh();
 
   }
 }
