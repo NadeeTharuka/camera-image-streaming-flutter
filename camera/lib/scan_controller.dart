@@ -9,14 +9,13 @@ class ScanController extends GetxController {
   late List<CameraDescription> _cameras;
 
   bool get isInitialized => _isInitialized.value;
+  CameraController get cameraController => _cameraController;
 
   Future<void> initCamera() async{
     _camera = await availableCameras();
     _cameraController = CameraController(_cameras[0], ResolutionPreset.max);
     _cameraController.initialize().then((_) {
-      if (!mounted) {
-        return;
-      }
+     _isInitialized.value = true;
       
     }).catchError((Object e) {
       if (e is CameraException) {
@@ -34,6 +33,7 @@ class ScanController extends GetxController {
 
   @override
   void onInit() {
+    _initCamera();
     super.onInit();
   }
 }
