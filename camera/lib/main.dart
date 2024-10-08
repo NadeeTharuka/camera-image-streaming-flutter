@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(;
-    home: CameraScreen(),
+    debugShowCheckdModeBanner: false,
+    home: const CameraScreen(),
     title: "Camera App",
     initialBinding: GlobalBinding()
     );
